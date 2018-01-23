@@ -3,7 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="menu">
-	<select id="selectMenu" resultType="map">
-		select * from menu
+	<select id="selectMenu" parameterType="map"  resultType="map">
+		select mNum as mNum, mName as mName, mUrl as mUrl, mDesc as mDesc from menu
 	</select>
+	<insert id="insertMenu" parameterType="menu">
+		insert into menu(mName,mUrl,mDesc) values(#{mName},#{mUrl},#{mDesc})
+	</insert>
+	<delete id="deleteMenu" parameterType="menu">
+		delete from menu where mNum=#{mNum}
+	</delete>
 </mapper>
