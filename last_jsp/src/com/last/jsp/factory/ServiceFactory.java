@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.last.jsp.service.Service;
 import com.last.jsp.service.impl.MenuServiceImpl;
+import com.last.jsp.service.impl.UserServiceImpl;
 
 public class ServiceFactory {
 	
@@ -25,6 +26,9 @@ public class ServiceFactory {
 	private void initInstance(String serviceName) {
 		if(serviceName.equals("menu")) {
 			serviceMap.put("menu", new MenuServiceImpl());
+		}
+		if(serviceName.equals("user")) {
+			serviceMap.put("user", new UserServiceImpl());
 		}
 	}
 	
